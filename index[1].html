@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>たくや バースデイ オリパ★</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:linear-gradient(135deg,#fff3c4,#ffd6e7 45%,#d7e9ff);color:#222}
+.wrap{max-width:900px;margin:auto;padding:28px 16px 60px}.card{background:#ffffffdc;backdrop-filter:blur(8px);border-radius:24px;padding:24px;box-shadow:0 12px 40px #0002;margin-bottom:18px}
+h1{text-align:center;font-size:clamp(25px,6vw,46px);margin:5px 0 8px;color:#d4145a;text-shadow:2px 2px #fff}
+.sub{text-align:center;font-weight:800;font-size:18px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}.stat{background:#fff;border-radius:16px;padding:18px;text-align:center}.num{font-size:30px;font-weight:900;color:#d4145a}
+button{border:0;border-radius:999px;padding:16px 28px;font-size:18px;font-weight:900;cursor:pointer}.mainbtn{display:block;margin:12px auto;background:#d4145a;color:#fff;box-shadow:0 8px 20px #d4145a55}.mainbtn:disabled{opacity:.4;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.prize{padding:16px;border-radius:16px;background:#fff;border:2px solid #eee}.S{border-color:#f1b400}.A{border-color:#d4145a}.B{border-color:#7b61ff}
+.result{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.tile{min-height:120px;background:#fff;border-radius:16px;padding:12px;text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 5px 15px #0001}.tile .rank{font-weight:900;font-size:20px}.hit{animation:pop .6s ease}.big{font-size:28px;font-weight:1000;color:#d4145a;text-align:center}@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.notice{font-size:13px;color:#666;text-align:center}.hidden{display:none}.login{position:fixed;inset:0;background:linear-gradient(135deg,#fff3c4,#ffd6e7,#d7e9ff);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}.loginbox{max-width:430px;width:100%;background:#fff;padding:30px;border-radius:25px;box-shadow:0 20px 60px #0003;text-align:center}.loginbox input{width:100%;padding:15px;border:2px solid #ddd;border-radius:12px;font-size:18px;margin:14px 0}.err{color:#d4145a;font-weight:700;min-height:24px}
+@media(max-width:600px){.result{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}h1{line-height:1.15}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+  <div class="loginbox">
+    <div style="font-size:44px">🎂</div>
+    <h1 style="font-size:30px">たくや バースデイ<br>オリパ★</h1>
+    <p>友達限定ページ</p>
+    <input id="pw" type="password" placeholder="パスワード">
+    <button type="button" class="mainbtn" onclick="login()">ログイン</button>
+    <div id="err" class="err"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="card">
+    <h1>総還元率∞％！！<br>たくや バースデイ オリパ★</h1>
+    <div class="sub">🎉 10連限定・バースデイスペシャル 🎉</div>
+    <div class="stats">
+      <div class="stat">残り口数<div class="num" id="remaining">500</div><small>/ 500</small></div>
+      <div class="stat">本日の残り回数<div class="num" id="daily">5</div><small>/ 5 回</small></div>
+    </div>
+    <button id="draw" class="mainbtn" onclick="draw10()">🎰 10連を引く！</button>
+    <div class="notice">※この試作品ではブラウザ内にデータを保存します。</div>
+  </div>
+
+  <div id="resultCard" class="card hidden">
+    <div id="resultTitle" class="big">10連結果</div>
+    <div id="result" class="result"></div>
+  </div>
+
+  <div class="card">
+    <h2>🎁 公開ラインナップ</h2>
+    <div class="grid">
+      <div class="prize S"><b>S賞 ×1</b><br>何かの未開封BOX（シュリンク付き）</div>
+      <div class="prize A"><b>A賞 ×1</b><br>キチチギスex SAR</div>
+      <div class="prize A"><b>A賞 ×1</b><br>ミュウex SAR</div>
+      <div class="prize B"><b>B賞 ×4</b><br>夜のタンカ SR</div>
+      <div class="prize"><b>C賞 ×493</b><br>ハズレ</div>
+    </div>
+  </div>
+</main>
+
+<script>
+// ===== 設定 =====
+const PASSWORD = "takuya"; // 好きなパスワードに変更してください
+
+// 上位賞の固定位置（1〜500）
+const fixed = {
+  49:  {rank:"B賞", name:"夜のタンカ SR"},
+  136: {rank:"A賞", name:"キチチギスex SAR"},
+  267: {rank:"B賞", name:"夜のタンカ SR"},
+  282: {rank:"B賞", name:"夜のタンカ SR"},
+  345: {rank:"A賞", name:"ミュウex SAR"},
+  444: {rank:"B賞", name:"夜のタンカ SR"},
+  500: {rank:"S賞", name:"何かの未開封BOX（シュリンク付き）"}
+};
+
+function todayKey(){ return new Date().toLocaleDateString("ja-JP"); }
+function load(){
+  let d=JSON.parse(localStorage.getItem("oripaData")||"null");
+  if(!d || d.date!==todayKey()) d={date:todayKey(),daily:0,next:1};
+  return d;
+}
+function save(d){localStorage.setItem("oripaData",JSON.stringify(d));}
+
+function login(){
+  const input = document.getElementById("pw").value.trim();
+  if(input===PASSWORD){
+    sessionStorage.setItem("ok","1");
+    document.getElementById("login").classList.add("hidden");
+  }else document.getElementById("err").textContent="パスワードが違います";
+}
+if(sessionStorage.getItem("ok")==="1") document.getElementById("login").classList.add("hidden");
+document.getElementById("pw").addEventListener("keydown", function(e){
+  if(e.key === "Enter") login();
+});
+
+function update(){
+  const d=load(); save(d);
+  document.getElementById("remaining").textContent=Math.max(0,501-d.next);
+  document.getElementById("daily").textContent=Math.max(0,5-d.daily);
+  document.getElementById("draw").disabled=d.daily>=5 || d.next>500;
+}
+update();
+
+function draw10(){
+  const d=load();
+  if(d.daily>=5 || d.next>500)return;
+  const cards=[];
+  for(let i=0;i<10 && d.next<=500;i++,d.next++){
+    cards.push(fixed[d.next] || {rank:"C賞",name:"ハズレ"});
+  }
+  d.daily++; save(d); update();
+
+  const rc=document.getElementById("resultCard"), r=document.getElementById("result");
+  rc.classList.remove("hidden"); r.innerHTML="";
+  const hasS=cards.some(x=>x.rank==="S賞"), hasA=cards.some(x=>x.rank==="A賞"), hasB=cards.some(x=>x.rank==="B賞");
+  document.getElementById("resultTitle").textContent=hasS?"🎉🎉 S賞 大当たり！！ 🎉🎉":hasA?"✨ A賞 当選！！ ✨":hasB?"🔥 B賞 当選！！ 🔥":"10連結果";
+
+  cards.forEach((c,i)=>{
+    const el=document.createElement("div"); el.className="tile "+(c.rank!=="C賞"?"hit":"");
+    el.innerHTML=`<div class="rank">${c.rank}</div><div>${c.name}</div><small>${d.next-10+i}口目</small>`;
+    r.appendChild(el);
+  });
+  rc.scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
