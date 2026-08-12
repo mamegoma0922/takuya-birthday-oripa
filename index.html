@@ -159,7 +159,7 @@ button{
 }
 
 .hidden{
-  display:none;
+  display:none !important;
 }
 
 .login{
@@ -170,7 +170,7 @@ button{
   align-items:center;
   justify-content:center;
   padding:20px;
-  z-index:10;
+  z-index:9999;
 }
 
 .loginbox{
@@ -216,8 +216,7 @@ button{
 
 <body>
 
-<!-- ==================== ログイン画面 ==================== -->
-
+<!-- ログイン画面 -->
 <div id="login" class="login">
 
   <div class="loginbox">
@@ -235,12 +234,13 @@ button{
       id="pw"
       type="password"
       placeholder="パスワード"
+      autocomplete="off"
     >
 
     <button
       type="button"
       class="mainbtn"
-      id="loginBtn"
+      onclick="login()"
     >
       ログイン
     </button>
@@ -252,8 +252,7 @@ button{
 </div>
 
 
-<!-- ==================== メインページ ==================== -->
-
+<!-- メインページ -->
 <main class="wrap">
 
   <div class="card">
@@ -287,6 +286,7 @@ button{
       id="draw"
       class="mainbtn"
       type="button"
+      onclick="draw10()"
     >
       🎰 10連を引く！
     </button>
@@ -298,8 +298,7 @@ button{
   </div>
 
 
-  <!-- ==================== 結果 ==================== -->
-
+  <!-- 結果 -->
   <div id="resultCard" class="card hidden">
 
     <div id="resultTitle" class="big">
@@ -311,8 +310,7 @@ button{
   </div>
 
 
-  <!-- ==================== ラインナップ ==================== -->
-
+  <!-- ラインナップ -->
   <div class="card">
 
     <h2>🎁 公開ラインナップ</h2>
@@ -351,16 +349,18 @@ button{
 </main>
 
 
-<!-- ==================== JavaScript ==================== -->
-
 <script>
 
-// ==================== 設定 ====================
+/* =========================
+   パスワード
+========================= */
 
 const PASSWORD = "takuya";
 
 
-// ==================== 上位賞の固定位置 ====================
+/* =========================
+   上位賞の固定位置
+========================= */
 
 const fixed = {
 
@@ -402,7 +402,9 @@ const fixed = {
 };
 
 
-// ==================== 今日の日付 ====================
+/* =========================
+   今日の日付
+========================= */
 
 function todayKey(){
 
@@ -411,17 +413,38 @@ function todayKey(){
 }
 
 
-// ==================== データ読み込み ====================
+/* =========================
+   データ読み込み
+========================= */
 
 function load(){
 
-  let d = JSON.parse(
-    localStorage.getItem("oripaData") || "null"
-  );
+  try{
 
-  if(!d || d.date !== todayKey()){
+    const saved =
+      localStorage.getItem("oripaData");
 
-    d = {
+    let d =
+      saved ? JSON.parse(saved) : null;
+
+    if(
+      !d ||
+      d.date !== todayKey()
+    ){
+
+      d = {
+        date:todayKey(),
+        daily:0,
+        next:1
+      };
+
+    }
+
+    return d;
+
+  }catch(e){
+
+    return {
       date:todayKey(),
       daily:0,
       next:1
@@ -429,79 +452,94 @@ function load(){
 
   }
 
-  return d;
-
 }
 
 
-// ==================== データ保存 ====================
+/* =========================
+   データ保存
+========================= */
 
 function save(d){
 
-  localStorage.setItem(
-    "oripaData",
-    JSON.stringify(d)
-  );
+  try{
 
-}
+    localStorage.setItem(
+      "oripaData",
+      JSON.stringify(d)
+    );
 
+  }catch(e){
 
-// ==================== ログイン ====================
-
-function login(){
-
-  const input =
-    document.getElementById("pw").value.trim();
-
-  if(input === PASSWORD){
-
-    sessionStorage.setItem("ok","1");
-
-    document
-      .getElementById("login")
-      .classList.add("hidden");
-
-    document
-      .getElementById("err")
-      .textContent = "";
-
-  }else{
-
-    document
-      .getElementById("err")
-      .textContent =
-        "パスワードが違います";
+    console.log(e);
 
   }
 
 }
 
 
-// ==================== ログインボタン ====================
+/* =========================
+   ログイン
+========================= */
 
-document
-  .getElementById("loginBtn")
-  .addEventListener("click", login);
+function login(){
+
+  const input =
+    document.getElementById("pw").value.trim();
+
+  const err =
+    document.getElementById("err");
+
+  if(input === PASSWORD){
+
+    sessionStorage.setItem(
+      "oripaLogin",
+      "true"
+    );
+
+    document
+      .getElementById("login")
+      .classList.add("hidden");
+
+    err.textContent = "";
+
+  }else{
+
+    err.textContent =
+      "パスワードが違います";
+
+  }
+
+}
 
 
-// ==================== Enterキー ====================
+/* =========================
+   Enterキー
+========================= */
 
 document
   .getElementById("pw")
-  .addEventListener("keydown", function(e){
+  .addEventListener(
+    "keydown",
+    function(e){
 
-    if(e.key === "Enter"){
+      if(e.key === "Enter"){
 
-      login();
+        login();
+
+      }
 
     }
+  );
 
-  });
 
+/* =========================
+   ログイン状態確認
+========================= */
 
-// ==================== ログイン状態確認 ====================
-
-if(sessionStorage.getItem("ok") === "1"){
+if(
+  sessionStorage.getItem("oripaLogin")
+  === "true"
+){
 
   document
     .getElementById("login")
@@ -510,7 +548,9 @@ if(sessionStorage.getItem("ok") === "1"){
 }
 
 
-// ==================== 表示更新 ====================
+/* =========================
+   表示更新
+========================= */
 
 function update(){
 
@@ -521,28 +561,40 @@ function update(){
   document
     .getElementById("remaining")
     .textContent =
-      Math.max(0,501-d.next);
+      Math.max(
+        0,
+        501 - d.next
+      );
 
   document
     .getElementById("daily")
     .textContent =
-      Math.max(0,5-d.daily);
+      Math.max(
+        0,
+        5 - d.daily
+      );
 
   document
     .getElementById("draw")
     .disabled =
-      d.daily >= 5 || d.next > 500;
+      d.daily >= 5 ||
+      d.next > 500;
 
 }
 
 
-// ==================== 10連 ====================
+/* =========================
+   10連
+========================= */
 
 function draw10(){
 
   const d = load();
 
-  if(d.daily >= 5 || d.next > 500){
+  if(
+    d.daily >= 5 ||
+    d.next > 500
+  ){
 
     return;
 
@@ -551,17 +603,21 @@ function draw10(){
   const cards = [];
 
   for(
-    let i=0;
-    i<10 && d.next<=500;
-    i++,d.next++
+    let i = 0;
+    i < 10 && d.next <= 500;
+    i++
   ){
 
+    const position = d.next;
+
     cards.push(
-      fixed[d.next] || {
+      fixed[position] || {
         rank:"C賞",
         name:"ハズレ"
       }
     );
+
+    d.next++;
 
   }
 
@@ -572,75 +628,108 @@ function draw10(){
   update();
 
 
-  // ==================== 結果表示 ====================
+  /* 結果表示 */
 
-  const rc =
-    document.getElementById("resultCard");
+  const resultCard =
+    document.getElementById(
+      "resultCard"
+    );
 
-  const r =
-    document.getElementById("result");
+  const result =
+    document.getElementById(
+      "result"
+    );
 
-  rc.classList.remove("hidden");
+  resultCard
+    .classList
+    .remove("hidden");
 
-  r.innerHTML = "";
+  result.innerHTML = "";
 
 
   const hasS =
-    cards.some(x => x.rank === "S賞");
+    cards.some(
+      x => x.rank === "S賞"
+    );
 
   const hasA =
-    cards.some(x => x.rank === "A賞");
+    cards.some(
+      x => x.rank === "A賞"
+    );
 
   const hasB =
-    cards.some(x => x.rank === "B賞");
+    cards.some(
+      x => x.rank === "B賞"
+    );
 
 
   document
-    .getElementById("resultTitle")
+    .getElementById(
+      "resultTitle"
+    )
     .textContent =
+
       hasS
         ? "🎉🎉 S賞 大当たり！！ 🎉🎉"
+
         : hasA
           ? "✨ A賞 当選！！ ✨"
+
           : hasB
             ? "🔥 B賞 当選！！ 🔥"
+
             : "10連結果";
 
 
-  cards.forEach((c,i)=>{
+  cards.forEach(
+    function(c,index){
 
-    const el =
-      document.createElement("div");
+      const el =
+        document.createElement(
+          "div"
+        );
 
-    el.className =
-      "tile " +
-      (c.rank !== "C賞" ? "hit" : "");
+      el.className =
+        "tile " +
+        (
+          c.rank !== "C賞"
+            ? "hit"
+            : ""
+        );
 
-    el.innerHTML =
-      `<div class="rank">${c.rank}</div>
-       <div>${c.name}</div>
-       <small>${d.next-10+i}口目</small>`;
+      const position =
+        d.next - cards.length + index;
 
-    r.appendChild(el);
+      el.innerHTML =
+        "<div class='rank'>" +
+        c.rank +
+        "</div>" +
 
-  });
+        "<div>" +
+        c.name +
+        "</div>" +
+
+        "<small>" +
+        position +
+        "口目" +
+        "</small>";
+
+      result.appendChild(el);
+
+    }
+  );
 
 
-  rc.scrollIntoView({
+  resultCard.scrollIntoView({
     behavior:"smooth"
   });
 
 }
 
 
-// ==================== 10連ボタン ====================
-
-document
-  .getElementById("draw")
-  .addEventListener("click", draw10);
-
-
-// ==================== 初期表示 ====================
+/* =========================
+   初期表示
+========================= */
 
 update();
 
