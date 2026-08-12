@@ -23,7 +23,7 @@ button{border:0;border-radius:999px;padding:16px 28px;font-size:18px;font-weight
     <h1 style="font-size:30px">たくや バースデイ<br>オリパ★</h1>
     <p>友達限定ページ</p>
     <input id="pw" type="password" placeholder="パスワード">
-    <button type="button" class="mainbtn" id="loginBtn">ログイン</button>
+    <button type="button" class="mainbtn" onclick="login()">ログイン</button>
     <div id="err" class="err"></div>
   </div>
 </div>
@@ -91,7 +91,6 @@ function login(){
   }
 }
 
-document.getElementById("loginBtn").addEventListener("click", login);
 if(sessionStorage.getItem("ok")==="1") document.getElementById("login").classList.add("hidden");
 document.getElementById("pw").addEventListener("keydown", function(e){
   if(e.key === "Enter") login();
