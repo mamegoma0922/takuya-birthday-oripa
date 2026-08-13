@@ -6,9 +6,7 @@
 <title>たくや バースデイ オリパ★</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -112,15 +110,15 @@ button{
   border:2px solid #eee;
 }
 
-.S{
+.prize.S{
   border-color:#f1b400;
 }
 
-.A{
+.prize.A{
   border-color:#d4145a;
 }
 
-.B{
+.prize.B{
   border-color:#7b61ff;
 }
 
@@ -188,9 +186,7 @@ button{
 }
 
 
-/* =========================
-   ログイン
-========================= */
+/* ログイン */
 
 .login{
   position:fixed;
@@ -229,9 +225,7 @@ button{
 }
 
 
-/* =========================
-   演出オーバーレイ
-========================= */
+/* 演出 */
 
 .effect{
   position:fixed;
@@ -260,7 +254,6 @@ button{
 }
 
 @keyframes effectFlash{
-
   0%{
     opacity:0;
     background:#fff0;
@@ -280,37 +273,10 @@ button{
     opacity:0;
     background:#fff0;
   }
-
 }
 
 
-/* =========================
-   カード出現
-========================= */
-
-@keyframes cardIn{
-
-  0%{
-    opacity:0;
-    transform:scale(.4) rotate(-8deg);
-  }
-
-  60%{
-    opacity:1;
-    transform:scale(1.12) rotate(3deg);
-  }
-
-  100%{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
-
-}
-
-
-/* =========================
-   S賞用画面
-========================= */
+/* S賞 */
 
 .splash{
   position:fixed;
@@ -339,7 +305,6 @@ button{
 }
 
 @keyframes splash{
-
   0%{
     opacity:0;
     transform:scale(.5);
@@ -359,13 +324,10 @@ button{
     opacity:0;
     transform:scale(1.2);
   }
-
 }
 
 
-/* =========================
-   紙吹雪
-========================= */
+/* 紙吹雪 */
 
 .confetti{
   position:fixed;
@@ -378,7 +340,6 @@ button{
 }
 
 @keyframes fall{
-
   0%{
     transform:translateY(-20px) rotate(0deg);
   }
@@ -386,40 +347,43 @@ button{
   100%{
     transform:translateY(110vh) rotate(720deg);
   }
-
 }
 
 
-/* =========================
-   10連中
-========================= */
+/* ガチャ中 */
 
 .drawing{
   animation:shake .35s infinite;
 }
 
 @keyframes shake{
+  0%{transform:rotate(0)}
 
+  25%{transform:rotate(-2deg)}
+
+  50%{transform:rotate(2deg)}
+
+  75%{transform:rotate(-2deg)}
+
+  100%{transform:rotate(0)}
+}
+
+
+@keyframes cardIn{
   0%{
-    transform:rotate(0);
+    opacity:0;
+    transform:scale(.4) rotate(-8deg);
   }
 
-  25%{
-    transform:rotate(-2deg);
-  }
-
-  50%{
-    transform:rotate(2deg);
-  }
-
-  75%{
-    transform:rotate(-2deg);
+  60%{
+    opacity:1;
+    transform:scale(1.12) rotate(3deg);
   }
 
   100%{
-    transform:rotate(0);
+    opacity:1;
+    transform:scale(1) rotate(0);
   }
-
 }
 
 
@@ -442,15 +406,15 @@ button{
   }
 
 }
-
 </style>
 </head>
+
 
 <body>
 
 
 <!-- =========================
-     ログイン画面
+     ログイン
 ========================= -->
 
 <div id="login" class="login">
@@ -530,6 +494,7 @@ button{
 
 <main class="wrap">
 
+
   <div class="card">
 
     <h1>
@@ -552,11 +517,11 @@ button{
           class="num"
           id="remaining"
         >
-          500
+          200
         </div>
 
         <small>
-          / 500
+          / 200
         </small>
 
       </div>
@@ -593,7 +558,7 @@ button{
 
 
     <div class="notice">
-      ※この試作品ではブラウザ内にデータを保存します。
+      ※毎日0:00に本日の利用回数がリセットされます。
     </div>
 
   </div>
@@ -615,6 +580,7 @@ button{
       10連結果
     </div>
 
+
     <div
       id="result"
       class="result"
@@ -633,36 +599,67 @@ button{
       🎁 公開ラインナップ
     </h2>
 
+
     <div class="grid">
 
+
       <div class="prize S">
-        <b>S賞 ×1</b><br>
-        何かの未開封BOX（シュリンク付き）
+
+        <b>
+          S賞 ×1
+        </b>
+
+        <br>
+
+        何かの未開封BOX
+        （シュリンク付き）
+
       </div>
 
-      <div class="prize A">
-        <b>A賞 ×1</b><br>
-        キチチギスex SAR
-      </div>
 
       <div class="prize A">
-        <b>A賞 ×1</b><br>
-        ミュウex SAR
+
+        <b>
+          A賞 ×2
+        </b>
+
+        <br>
+
+        何かのSAR or SSR
+
       </div>
+
 
       <div class="prize B">
-        <b>B賞 ×4</b><br>
-        夜のタンカ SR
+
+        <b>
+          B賞 ×4
+        </b>
+
+        <br>
+
+        何かのSR
+
       </div>
 
+
       <div class="prize">
-        <b>C賞 ×493</b><br>
+
+        <b>
+          C賞 ×193
+        </b>
+
+        <br>
+
         ハズレ
+
       </div>
+
 
     </div>
 
   </div>
+
 
 </main>
 
@@ -671,10 +668,14 @@ button{
 
 
 /* =========================
-   パスワード
+   基本設定
 ========================= */
 
 const PASSWORD = "takuya";
+
+const TOTAL = 200;
+
+const DAILY_LIMIT = 5;
 
 
 /* =========================
@@ -683,37 +684,45 @@ const PASSWORD = "takuya";
 
 const fixed = {
 
-  49:{
+  /* B賞 */
+
+  33:{
     rank:"B賞",
     name:"夜のタンカ SR"
   },
 
-  136:{
+  66:{
+    rank:"B賞",
+    name:"夜のタンカ SR"
+  },
+
+  99:{
+    rank:"B賞",
+    name:"夜のタンカ SR"
+  },
+
+  125:{
+    rank:"B賞",
+    name:"夜のタンカ SR"
+  },
+
+
+  /* A賞 */
+
+  71:{
     rank:"A賞",
     name:"キチチギスex SAR"
   },
 
-  267:{
-    rank:"B賞",
-    name:"夜のタンカ SR"
-  },
-
-  282:{
-    rank:"B賞",
-    name:"夜のタンカ SR"
-  },
-
-  345:{
+  168:{
     rank:"A賞",
-    name:"ミュウex SAR"
+    name:"ミュウex SSR"
   },
 
-  444:{
-    rank:"B賞",
-    name:"夜のタンカ SR"
-  },
 
-  500:{
+  /* S賞 */
+
+  188:{
     rank:"S賞",
     name:"何かの未開封BOX（シュリンク付き）"
   }
@@ -722,7 +731,7 @@ const fixed = {
 
 
 /* =========================
-   Audio
+   音
 ========================= */
 
 let audioCtx = null;
@@ -751,10 +760,6 @@ function startAudio(){
 }
 
 
-/* =========================
-   単音
-========================= */
-
 function tone(
   frequency,
   duration,
@@ -764,33 +769,46 @@ function tone(
 
   startAudio();
 
+
   const osc =
     audioCtx.createOscillator();
+
 
   const gain =
     audioCtx.createGain();
 
-  osc.type = type;
+
+  osc.type =
+    type;
+
 
   osc.frequency.setValueAtTime(
     frequency,
     audioCtx.currentTime
   );
 
+
   gain.gain.setValueAtTime(
     volume,
     audioCtx.currentTime
   );
+
 
   gain.gain.exponentialRampToValueAtTime(
     .001,
     audioCtx.currentTime + duration
   );
 
+
   osc.connect(gain);
-  gain.connect(audioCtx.destination);
+
+  gain.connect(
+    audioCtx.destination
+  );
+
 
   osc.start();
+
 
   osc.stop(
     audioCtx.currentTime + duration
@@ -807,6 +825,7 @@ function playGacha(){
 
   startAudio();
 
+
   const notes = [
     220,
     260,
@@ -816,17 +835,20 @@ function playGacha(){
     520
   ];
 
+
   notes.forEach(
     (n,i)=>{
 
       setTimeout(
         ()=>{
+
           tone(
             n,
             .12,
             "square",
             .08
           );
+
         },
         i*90
       );
@@ -838,7 +860,7 @@ function playGacha(){
 
 
 /* =========================
-   カード音
+   通常カード音
 ========================= */
 
 function playCardSound(){
@@ -866,14 +888,17 @@ function playBSound(){
     .18
   );
 
+
   setTimeout(
     ()=>{
+
       tone(
         900,
         .25,
         "triangle",
         .18
       );
+
     },
     120
   );
@@ -894,26 +919,32 @@ function playASound(){
     .2
   );
 
+
   setTimeout(
     ()=>{
+
       tone(
         1000,
         .18,
         "triangle",
         .2
       );
+
     },
     120
   );
 
+
   setTimeout(
     ()=>{
+
       tone(
         1400,
         .35,
         "triangle",
         .2
       );
+
     },
     240
   );
@@ -922,7 +953,7 @@ function playASound(){
 
 
 /* =========================
-   S賞ファンファーレ
+   S賞音
 ========================= */
 
 function playSSound(){
@@ -935,17 +966,20 @@ function playSSound(){
     1318
   ];
 
+
   notes.forEach(
     (n,i)=>{
 
       setTimeout(
         ()=>{
+
           tone(
             n,
             .35,
             "triangle",
             .25
           );
+
         },
         i*180
       );
@@ -963,7 +997,9 @@ function playSSound(){
 function todayKey(){
 
   return new Date()
-    .toLocaleDateString("ja-JP");
+    .toLocaleDateString(
+      "ja-JP"
+    );
 
 }
 
@@ -981,10 +1017,12 @@ function load(){
         "oripaData"
       );
 
+
     let d =
       saved
         ? JSON.parse(saved)
         : null;
+
 
     if(
       !d ||
@@ -992,21 +1030,30 @@ function load(){
     ){
 
       d = {
+
         date:todayKey(),
+
         daily:0,
+
         next:1
+
       };
 
     }
+
 
     return d;
 
   }catch(e){
 
     return {
+
       date:todayKey(),
+
       daily:0,
+
       next:1
+
     };
 
   }
@@ -1048,8 +1095,12 @@ function login(){
       .value
       .trim();
 
+
   const err =
-    document.getElementById("err");
+    document.getElementById(
+      "err"
+    );
+
 
   if(
     input === PASSWORD
@@ -1060,10 +1111,12 @@ function login(){
       "true"
     );
 
+
     document
       .getElementById("login")
       .classList
       .add("hidden");
+
 
     err.textContent = "";
 
@@ -1078,7 +1131,7 @@ function login(){
 
 
 /* =========================
-   Enter
+   Enterキー
 ========================= */
 
 document
@@ -1123,31 +1176,42 @@ if(
 
 function update(){
 
-  const d = load();
+  const d =
+    load();
+
 
   save(d);
 
+
   document
-    .getElementById("remaining")
+    .getElementById(
+      "remaining"
+    )
     .textContent =
       Math.max(
         0,
-        501 - d.next
+        TOTAL + 1 - d.next
       );
 
+
   document
-    .getElementById("daily")
+    .getElementById(
+      "daily"
+    )
     .textContent =
       Math.max(
         0,
-        5 - d.daily
+        DAILY_LIMIT - d.daily
       );
 
+
   document
-    .getElementById("draw")
+    .getElementById(
+      "draw"
+    )
     .disabled =
-      d.daily >= 5 ||
-      d.next > 500;
+      d.daily >= DAILY_LIMIT ||
+      d.next > TOTAL;
 
 }
 
@@ -1169,17 +1233,22 @@ function confetti(){
         "div"
       );
 
+
     c.className =
       "confetti";
+
 
     c.style.left =
       Math.random()*100 + "%";
 
+
     c.style.animationDuration =
       (2 + Math.random()*3) + "s";
 
+
     c.style.animationDelay =
       Math.random()*1.5 + "s";
+
 
     c.style.background =
       [
@@ -1194,9 +1263,11 @@ function confetti(){
         )
       ];
 
+
     document
       .body
       .appendChild(c);
+
 
     setTimeout(
       ()=>{
@@ -1211,7 +1282,7 @@ function confetti(){
 
 
 /* =========================
-   演出テキスト
+   賞演出
 ========================= */
 
 function showEffect(text){
@@ -1221,17 +1292,22 @@ function showEffect(text){
       "effect"
     );
 
+
   document
     .getElementById(
       "effectText"
     )
-    .textContent = text;
+    .textContent =
+      text;
+
 
   effect.classList.remove(
     "show"
   );
 
+
   void effect.offsetWidth;
+
 
   effect.classList.add(
     "show"
@@ -1251,17 +1327,22 @@ function showS(){
       "splash"
     );
 
+
   splash.classList.remove(
     "show"
   );
 
+
   void splash.offsetWidth;
+
 
   splash.classList.add(
     "show"
   );
 
+
   playSSound();
+
 
   confetti();
 
@@ -1274,11 +1355,13 @@ function showS(){
 
 async function draw10(){
 
-  const d = load();
+  const d =
+    load();
+
 
   if(
-    d.daily >= 5 ||
-    d.next > 500
+    d.daily >= DAILY_LIMIT ||
+    d.next > TOTAL
   ){
 
     return;
@@ -1286,39 +1369,41 @@ async function draw10(){
   }
 
 
-  /* 音を開始 */
-
   startAudio();
+
 
   playGacha();
 
-
-  /* ボタン停止 */
 
   const button =
     document.getElementById(
       "draw"
     );
 
-  button.disabled = true;
+
+  button.disabled =
+    true;
+
 
   button.classList.add(
     "drawing"
   );
 
 
-  /* 結果データ */
+  /* 今回の10枚 */
 
   const cards = [];
 
+
   for(
     let i=0;
-    i<10 && d.next<=500;
+    i<10 && d.next<=TOTAL;
     i++
   ){
 
     const position =
       d.next;
+
 
     cards.push({
 
@@ -1327,11 +1412,13 @@ async function draw10(){
       ...(fixed[position] || {
 
         rank:"C賞",
+
         name:"ハズレ"
 
       })
 
     });
+
 
     d.next++;
 
@@ -1340,45 +1427,58 @@ async function draw10(){
 
   d.daily++;
 
+
   save(d);
+
 
   update();
 
 
-  /* 結果エリア */
+  /* 結果表示 */
 
   const resultCard =
     document.getElementById(
       "resultCard"
     );
 
+
   const result =
     document.getElementById(
       "result"
     );
 
+
   resultCard
     .classList
-    .remove("hidden");
+    .remove(
+      "hidden"
+    );
 
-  result.innerHTML = "";
+
+  result.innerHTML =
+    "";
 
 
-  /* タイトル */
+  /* 当選判定 */
 
   const hasS =
     cards.some(
-      x => x.rank === "S賞"
+      x =>
+        x.rank === "S賞"
     );
+
 
   const hasA =
     cards.some(
-      x => x.rank === "A賞"
+      x =>
+        x.rank === "A賞"
     );
+
 
   const hasB =
     cards.some(
-      x => x.rank === "B賞"
+      x =>
+        x.rank === "B賞"
     );
 
 
@@ -1400,7 +1500,7 @@ async function draw10(){
             : "10連結果";
 
 
-  /* カードを順番に表示 */
+  /* 1枚ずつ表示 */
 
   for(
     let i=0;
@@ -1410,6 +1510,7 @@ async function draw10(){
 
     const c =
       cards[i];
+
 
     await new Promise(
       resolve =>
@@ -1429,36 +1530,42 @@ async function draw10(){
       );
 
 
-    let cls = "C";
+    let cls =
+      "C";
+
 
     if(
       c.rank === "B賞"
     ){
 
-      cls = "B";
+      cls =
+        "B";
 
     }
+
 
     if(
       c.rank === "A賞"
     ){
 
-      cls = "A";
+      cls =
+        "A";
 
     }
+
 
     if(
       c.rank === "S賞"
     ){
 
-      cls = "S";
+      cls =
+        "S";
 
     }
 
 
     el.className =
-      "tile " +
-      cls;
+      "tile " + cls;
 
 
     el.innerHTML =
@@ -1484,20 +1591,23 @@ async function draw10(){
 
     requestAnimationFrame(
       ()=>{
+
         el.classList.add(
           "show"
         );
+
       }
     );
 
 
-    /* 上位賞演出 */
+    /* B賞 */
 
     if(
       c.rank === "B賞"
     ){
 
       playBSound();
+
 
       showEffect(
         "🔥 B賞！！ 🔥"
@@ -1506,11 +1616,14 @@ async function draw10(){
     }
 
 
+    /* A賞 */
+
     if(
       c.rank === "A賞"
     ){
 
       playASound();
+
 
       showEffect(
         "✨ A賞！！ ✨"
@@ -1518,6 +1631,8 @@ async function draw10(){
 
     }
 
+
+    /* S賞 */
 
     if(
       c.rank === "S賞"
@@ -1533,6 +1648,7 @@ async function draw10(){
   button.classList.remove(
     "drawing"
   );
+
 
   update();
 
