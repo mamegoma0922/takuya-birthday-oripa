@@ -122,7 +122,7 @@ button{
 
 
 /* =========================
-   ログイン
+   LOGIN
 ========================= */
 
 .login{
@@ -163,7 +163,7 @@ button{
 
 
 /* =========================
-   ガチャ画面
+   GACHA
 ========================= */
 
 .gachaOverlay{
@@ -201,11 +201,6 @@ button{
   margin:auto;
 }
 
-
-/* =========================
-   中身
-========================= */
-
 .ticket{
   position:absolute;
   inset:0;
@@ -214,6 +209,11 @@ button{
   overflow:hidden;
   box-shadow:0 20px 70px #0009;
 }
+
+
+/* =========================
+   中身
+========================= */
 
 .ticketInside{
   position:absolute;
@@ -290,7 +290,6 @@ button{
 
   touch-action:none;
 
-  /* ★最初は必ずまっすぐ */
   transform:translateX(0) rotate(0deg);
   opacity:1;
 }
@@ -337,8 +336,8 @@ button{
 
 .peelCover.peeling{
   transition:
-    transform .65s cubic-bezier(.2,.8,.2,1),
-    opacity .65s;
+    transform 1.5s cubic-bezier(.2,.8,.2,1),
+    opacity 1.5s;
 
   transform:
     translateX(110%)
@@ -400,11 +399,9 @@ button{
     transform:scale(.5);
     opacity:0;
   }
-
   70%{
     transform:scale(1.08);
   }
-
   100%{
     transform:scale(1);
     opacity:1;
@@ -413,7 +410,7 @@ button{
 
 
 /* =========================
-   大当たり演出
+   大当たり
 ========================= */
 
 .bigEffect{
@@ -447,17 +444,14 @@ button{
     opacity:0;
     transform:scale(.3);
   }
-
   25%{
     opacity:1;
     transform:scale(1.15);
   }
-
   70%{
     opacity:1;
     transform:scale(1);
   }
-
   100%{
     opacity:0;
     transform:scale(1.2);
@@ -489,7 +483,7 @@ button{
 
 
 /* =========================
-   スマホ
+   MOBILE
 ========================= */
 
 @media(max-width:600px){
@@ -565,27 +559,18 @@ button{
      大当たり演出
 ========================= -->
 
-<div
-  id="bigEffect"
-  class="bigEffect"
->
+<div id="bigEffect" class="bigEffect">
 
-  <div
-    id="bigEffectText"
-    class="bigEffectText"
-  ></div>
+  <div id="bigEffectText" class="bigEffectText"></div>
 
 </div>
 
 
 <!-- =========================
-     ガチャ
+     GACHA
 ========================= -->
 
-<div
-  id="gachaOverlay"
-  class="gachaOverlay hidden"
->
+<div id="gachaOverlay" class="gachaOverlay hidden">
 
   <div class="gachaBox">
 
@@ -593,56 +578,32 @@ button{
       🎟️ 10連ペリペリチャレンジ！
     </div>
 
-    <div
-      id="gachaCount"
-      class="gachaCount"
-    >
+    <div id="gachaCount" class="gachaCount">
       1 / 10
     </div>
-
 
     <div class="peelArea">
 
       <div class="ticket">
 
+        <div id="ticketInside" class="ticketInside c">
 
-        <!-- 中身 -->
-
-        <div
-          id="ticketInside"
-          class="ticketInside c"
-        >
-
-          <div
-            id="insideRank"
-            class="insideRank"
-          >
+          <div id="insideRank" class="insideRank">
             C賞
           </div>
 
-          <div
-            id="insideName"
-            class="insideName"
-          >
+          <div id="insideName" class="insideName">
             ハズレ
           </div>
 
-          <div
-            id="insidePos"
-            class="insidePos"
-          >
+          <div id="insidePos" class="insidePos">
             1口目
           </div>
 
         </div>
 
 
-        <!-- ペリペリ -->
-
-        <div
-          id="peelCover"
-          class="peelCover"
-        >
+        <div id="peelCover" class="peelCover">
 
           <div class="peelLogo">
 
@@ -704,10 +665,7 @@ button{
 
         残り口数
 
-        <div
-          id="remaining"
-          class="num"
-        >
+        <div id="remaining" class="num">
           200
         </div>
 
@@ -720,10 +678,7 @@ button{
 
         本日の残り回数
 
-        <div
-          id="daily"
-          class="num"
-        >
+        <div id="daily" class="num">
           5
         </div>
 
@@ -751,40 +706,29 @@ button{
 
 
   <!-- =========================
-       結果
+       RESULT
   ========================= -->
 
-  <div
-    id="resultCard"
-    class="card hidden"
-  >
+  <div id="resultCard" class="card hidden">
 
-    <div
-      id="resultTitle"
-      class="resultTitle"
-    >
+    <div id="resultTitle" class="resultTitle">
       10連結果
     </div>
 
-    <div
-      id="result"
-      class="result"
-    ></div>
+    <div id="result" class="result"></div>
 
   </div>
 
 
   <!-- =========================
-       ラインナップ
+       LINEUP
   ========================= -->
 
   <div class="card">
 
     <h2>🎁 公開ラインナップ</h2>
 
-
     <div class="grid">
-
 
       <div class="prize S">
 
@@ -840,7 +784,7 @@ button{
 
       <div class="prize">
 
-        <b>C賞 ×193</b>
+        <b>C賞</b>
 
         <br>
 
@@ -863,9 +807,8 @@ button{
 
 <script>
 
-
 /* =========================
-   設定
+   SETTINGS
 ========================= */
 
 const PASSWORD="takuya";
@@ -876,7 +819,7 @@ const DAILY_LIMIT=5;
 
 
 /* =========================
-   当たり位置
+   固定当たり位置
 ========================= */
 
 const fixed={
@@ -920,7 +863,7 @@ const fixed={
 
 
 /* =========================
-   音
+   AUDIO
 ========================= */
 
 let audioCtx=null;
@@ -937,18 +880,12 @@ function startAudio(){
 
   }
 
-  if(
-    audioCtx.state==="suspended"
-  ){
-
+  if(audioCtx.state==="suspended"){
     audioCtx.resume();
-
   }
 
 }
 
-
-/* 普通の音 */
 
 function tone(
   frequency,
@@ -992,138 +929,123 @@ function tone(
 }
 
 
-/* ★軽いペリペリ音 */
+/* =========================
+   ★ 長いペリペリ音
+========================= */
 
 function peelSound(){
 
   startAudio();
 
   const sounds=[
-    [170,.06],
-    [220,.06],
-    [190,.06],
-    [250,.06],
-    [210,.07],
-    [270,.07]
+
+    [150,.10],
+    [175,.10],
+    [200,.10],
+    [180,.10],
+    [225,.10],
+    [250,.10],
+    [210,.10],
+    [270,.10],
+    [235,.10],
+    [290,.10],
+    [260,.10],
+    [310,.10],
+    [280,.10],
+    [330,.10],
+    [300,.10]
+
   ];
 
-  sounds.forEach(
-    (s,i)=>{
 
-      setTimeout(
-        ()=>{
+  sounds.forEach((s,i)=>{
 
-          tone(
-            s[0],
-            s[1],
-            "triangle",
-            .018
-          );
+    setTimeout(()=>{
 
-        },
-        i*70
-      );
-
-    }
-  );
-
-}
-
-
-/* B */
-
-function bSound(){
-
-  tone(
-    620,
-    .15,
-    "triangle",
-    .12
-  );
-
-  setTimeout(
-    ()=>{
       tone(
-        900,
-        .25,
+        s[0],
+        s[1],
         "triangle",
-        .15
-      );
-    },
-    120
-  );
-
-}
-
-
-/* A */
-
-function aSound(){
-
-  [700,1000,1400]
-  .forEach(
-    (n,i)=>{
-
-      setTimeout(
-        ()=>{
-          tone(
-            n,
-            .25,
-            "triangle",
-            .16
-          );
-        },
-        i*130
+        .045
       );
 
-    }
-  );
+    },i*100);
 
-}
-
-
-/* S */
-
-function sSound(){
-
-  [523,659,784,1046,1318,1568]
-  .forEach(
-    (n,i)=>{
-
-      setTimeout(
-        ()=>{
-          tone(
-            n,
-            .32,
-            "triangle",
-            .2
-          );
-        },
-        i*130
-      );
-
-    }
-  );
+  });
 
 }
 
 
 /* =========================
-   日付
+   当たり音
+========================= */
+
+function bSound(){
+
+  tone(620,.15,"triangle",.12);
+
+  setTimeout(()=>{
+    tone(900,.25,"triangle",.15);
+  },120);
+
+}
+
+
+function aSound(){
+
+  [700,1000,1400].forEach((n,i)=>{
+
+    setTimeout(()=>{
+
+      tone(
+        n,
+        .25,
+        "triangle",
+        .16
+      );
+
+    },i*130);
+
+  });
+
+}
+
+
+function sSound(){
+
+  [523,659,784,1046,1318,1568]
+    .forEach((n,i)=>{
+
+      setTimeout(()=>{
+
+        tone(
+          n,
+          .32,
+          "triangle",
+          .20
+        );
+
+      },i*130);
+
+    });
+
+}
+
+
+/* =========================
+   DATE
 ========================= */
 
 function todayKey(){
 
   return new Date()
-    .toLocaleDateString(
-      "ja-JP"
-    );
+    .toLocaleDateString("ja-JP");
 
 }
 
 
 /* =========================
-   データ
+   DATA
 ========================= */
 
 function load(){
@@ -1158,7 +1080,6 @@ function load(){
 
   }
 
-
   return d;
 
 }
@@ -1175,7 +1096,7 @@ function save(d){
 
 
 /* =========================
-   ログイン
+   LOGIN
 ========================= */
 
 function login(){
@@ -1187,9 +1108,7 @@ function login(){
       .trim();
 
 
-  if(
-    input===PASSWORD
-  ){
+  if(input===PASSWORD){
 
     sessionStorage.setItem(
       "oripaLogin",
@@ -1246,7 +1165,7 @@ if(
 
 
 /* =========================
-   残り口数
+   残り賞数
 ========================= */
 
 function calculateRemaining(){
@@ -1267,42 +1186,30 @@ function calculateRemaining(){
     if(!fixed[i])continue;
 
 
-    if(
-      fixed[i].rank==="S賞"
-    ){
+    if(fixed[i].rank==="S賞"){
       s--;
     }
 
-
-    if(
-      fixed[i].rank==="A賞"
-    ){
+    if(fixed[i].rank==="A賞"){
       a--;
     }
 
-
-    if(
-      fixed[i].rank==="B賞"
-    ){
+    if(fixed[i].rank==="B賞"){
       b--;
     }
 
   }
 
 
-  const drawn=
-    d.next-1;
-
+  const drawn=d.next-1;
 
   const special=
     (1-s)+(2-a)+(4-b);
 
-
   const c=
     Math.max(
       0,
-      193-
-      (drawn-special)
+      193-(drawn-special)
     );
 
 
@@ -1317,7 +1224,7 @@ function calculateRemaining(){
 
 
 /* =========================
-   表示更新
+   UPDATE
 ========================= */
 
 function update(){
@@ -1376,7 +1283,7 @@ function update(){
 
 
 /* =========================
-   ガチャ状態
+   GACHA STATE
 ========================= */
 
 let cards=[];
@@ -1426,24 +1333,17 @@ function showNextCard(){
   let type="c";
 
 
-  if(
-    currentCard.rank==="S賞"
-  ){
+  if(currentCard.rank==="S賞"){
     type="s";
-  }else if(
-    currentCard.rank==="A賞"
-  ){
+  }else if(currentCard.rank==="A賞"){
     type="a";
-  }else if(
-    currentCard.rank==="B賞"
-  ){
+  }else if(currentCard.rank==="B賞"){
     type="b";
   }
 
 
   inside.className=
-    "ticketInside "+
-    type;
+    "ticketInside "+type;
 
 
   document
@@ -1471,36 +1371,22 @@ function showNextCard(){
     );
 
 
-  /*
-    ★ここが重要
-
-    前回のドラッグ状態を
-    毎回完全に消す
-  */
+  /* ★毎回完全リセット */
 
   cover.classList.remove(
     "peeling"
   );
 
-  cover.style.transition=
-    "none";
+  cover.style.transition="none";
 
   cover.style.transform=
     "translateX(0px) rotate(0deg)";
 
-  cover.style.opacity=
-    "1";
-
-  /*
-    ブラウザに
-    「リセットした」と認識させる
-  */
+  cover.style.opacity="1";
 
   void cover.offsetWidth;
 
-
   cover.style.transition="";
-
 
   peeling=false;
 
@@ -1515,7 +1401,7 @@ function showNextCard(){
 
 
 /* =========================
-   ペリペリ
+   PEEL
 ========================= */
 
 function peel(){
@@ -1544,54 +1430,48 @@ function peel(){
     .disabled=true;
 
 
-  /*
-    ★必ず正面から開始
-  */
+  /* 必ず正面から */
 
   cover.style.transform=
     "translateX(0px) rotate(0deg)";
 
 
+  /* ★長いペリペリ音開始 */
+
   peelSound();
 
 
   /*
-    少しだけ音を聞かせてから
-    ペリペリ開始
+    音と動きを合わせる
+    約1.5秒
   */
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      cover.style.transition=
-        "transform .65s cubic-bezier(.2,.8,.2,1), opacity .65s";
+    cover.style.transition=
+      "transform 1.5s cubic-bezier(.2,.8,.2,1), opacity 1.5s";
 
-      cover.style.transform=
-        "translateX(110%) rotate(0deg)";
+    cover.style.transform=
+      "translateX(110%) rotate(0deg)";
 
-      cover.style.opacity="0";
+    cover.style.opacity="0";
 
-    },
-    80
-  );
+  },50);
 
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      revealPrize(
-        currentCard
-      );
+    revealPrize(
+      currentCard
+    );
 
-    },
-    700
-  );
+  },1600);
 
 }
 
 
 /* =========================
-   ドラッグ
+   DRAG
 ========================= */
 
 let startX=0;
@@ -1674,10 +1554,6 @@ cover.addEventListener(
 
     }else{
 
-      /*
-        ★戻すときも必ず0度
-      */
-
       cover.style.transition=
         "transform .25s ease";
 
@@ -1691,7 +1567,7 @@ cover.addEventListener(
 
 
 /* =========================
-   演出
+   大当たり演出
 ========================= */
 
 function bigEffect(text){
@@ -1709,15 +1585,11 @@ function bigEffect(text){
     .textContent=text;
 
 
-  box.classList.remove(
-    "show"
-  );
+  box.classList.remove("show");
 
   void box.offsetWidth;
 
-  box.classList.add(
-    "show"
-  );
+  box.classList.add("show");
 
 }
 
@@ -1736,8 +1608,7 @@ function makeConfetti(){
       );
 
 
-    c.className=
-      "confetti";
+    c.className="confetti";
 
 
     c.style.left=
@@ -1781,103 +1652,72 @@ function makeConfetti(){
 
 
 /* =========================
-   当選表示
+   当たり表示
 ========================= */
 
 function revealPrize(card){
 
-  if(
-    card.rank==="B賞"
-  ){
+  if(card.rank==="B賞"){
 
     bSound();
 
-    setTimeout(
-      ()=>{
-        bigEffect(
-          "🔥 B賞！！ 🔥"
-        );
-      },
-      100
-    );
+    setTimeout(()=>{
+      bigEffect("🔥 B賞！！ 🔥");
+    },100);
 
   }
 
 
-  if(
-    card.rank==="A賞"
-  ){
+  if(card.rank==="A賞"){
 
     aSound();
 
-    setTimeout(
-      ()=>{
-        bigEffect(
-          "✨ A賞！！ ✨"
-        );
-      },
-      100
-    );
+    setTimeout(()=>{
+      bigEffect("✨ A賞！！ ✨");
+    },100);
 
   }
 
 
-  if(
-    card.rank==="S賞"
-  ){
+  if(card.rank==="S賞"){
 
     sSound();
 
-    setTimeout(
-      ()=>{
+    setTimeout(()=>{
 
-        bigEffect(
-          "🎉 S賞！！ 🎉"
-        );
+      bigEffect(
+        "🎉 S賞！！ 🎉"
+      );
 
-        makeConfetti();
+      makeConfetti();
 
-      },
-      100
-    );
+    },100);
 
   }
 
 
   let wait=850;
 
-
-  if(
-    card.rank==="B賞"
-  ){
+  if(card.rank==="B賞"){
     wait=1200;
   }
 
-
-  if(
-    card.rank==="A賞"
-  ){
+  if(card.rank==="A賞"){
     wait=1500;
   }
 
-
-  if(
-    card.rank==="S賞"
-  ){
+  if(card.rank==="S賞"){
     wait=2000;
   }
 
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      currentIndex++;
+    currentIndex++;
 
-      showNextCard();
+    showNextCard();
 
-    },
-    wait
-  );
+  },wait);
 
 }
 
@@ -1895,9 +1735,7 @@ function draw10(){
     d.daily>=DAILY_LIMIT||
     d.next>TOTAL
   ){
-
     return;
-
   }
 
 
@@ -1913,8 +1751,7 @@ function draw10(){
     i++
   ){
 
-    const position=
-      d.next;
+    const position=d.next;
 
 
     cards.push({
@@ -1924,7 +1761,6 @@ function draw10(){
       ...(fixed[position]||{
 
         rank:"C賞",
-
         name:"ハズレ"
 
       })
@@ -1942,22 +1778,17 @@ function draw10(){
 
   save(d);
 
-
   update();
 
 
   document
-    .getElementById(
-      "resultCard"
-    )
+    .getElementById("resultCard")
     .classList
     .add("hidden");
 
 
   document
-    .getElementById(
-      "gachaOverlay"
-    )
+    .getElementById("gachaOverlay")
     .classList
     .remove("hidden");
 
@@ -1981,9 +1812,7 @@ function draw10(){
 function finishGacha(){
 
   document
-    .getElementById(
-      "gachaOverlay"
-    )
+    .getElementById("gachaOverlay")
     .classList
     .add("hidden");
 
@@ -2016,9 +1845,7 @@ function finishGacha(){
 
 
   document
-    .getElementById(
-      "resultTitle"
-    )
+    .getElementById("resultTitle")
     .textContent=
       hasS
         ?"🎉🎉 S賞 大当たり！！ 🎉🎉"
@@ -2029,55 +1856,48 @@ function finishGacha(){
             :"10連結果";
 
 
-  cards.forEach(
-    c=>{
+  cards.forEach(c=>{
 
-      const el=
-        document.createElement(
-          "div"
-        );
-
-
-      let cls="";
-
-
-      if(c.rank==="S賞")cls="S";
-
-      if(c.rank==="A賞")cls="A";
-
-      if(c.rank==="B賞")cls="B";
-
-
-      el.className=
-        "tile "+
-        cls;
-
-
-      el.innerHTML=
-        "<div class='rank'>"+
-        c.rank+
-        "</div>"+
-        "<div>"+
-        c.name+
-        "</div>"+
-        "<small>"+
-        c.position+
-        "口目"+
-        "</small>";
-
-
-      result.appendChild(
-        el
+    const el=
+      document.createElement(
+        "div"
       );
 
-    }
-  );
+
+    let cls="";
+
+
+    if(c.rank==="S賞")cls="S";
+
+    if(c.rank==="A賞")cls="A";
+
+    if(c.rank==="B賞")cls="B";
+
+
+    el.className=
+      "tile "+cls;
+
+
+    el.innerHTML=
+      "<div class='rank'>"+
+      c.rank+
+      "</div>"+
+      "<div>"+
+      c.name+
+      "</div>"+
+      "<small>"+
+      c.position+
+      "口目"+
+      "</small>";
+
+
+    result.appendChild(el);
+
+  });
 
 
   document
-    .getElementById(
-      "resultCard"
-    )
+    .getElementById("resultCard")
     .classList
     .remove("hidden");
 
@@ -2086,9 +1906,7 @@ function finishGacha(){
 
 
   document
-    .getElementById(
-      "resultCard"
-    )
+    .getElementById("resultCard")
     .scrollIntoView({
       behavior:"smooth"
     });
@@ -2097,16 +1915,15 @@ function finishGacha(){
 
 
 /* =========================
-   初期化
+   INIT
 ========================= */
 
 update();
 
 
 /*
-  10秒ごとに確認。
-  0:00をまたいだら
-  自動的に5回へ戻る。
+  10秒ごとに日付を確認。
+  0:00を過ぎたら自動リセット。
 */
 
 setInterval(
