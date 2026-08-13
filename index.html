@@ -6,10 +6,15 @@
 
 <title>総還元率∞％！！ たくや バースデイ オリパ★</title>
 
-<meta name="description" content="たくや バースデイ オリパ★ 🎂">
+<meta name="description"
+content="たくや バースデイ オリパ★ 🎂 友達限定のバースデイスペシャルオリパ！">
 
-<meta property="og:title" content="🎂 たくや バースデイ オリパ★">
-<meta property="og:description" content="総還元率∞％！！ バースデイスペシャルオリパ★">
+<meta property="og:title"
+content="🎂 たくや バースデイ オリパ★">
+
+<meta property="og:description"
+content="総還元率∞％！！ バースデイスペシャルオリパ★">
+
 <meta property="og:type" content="website">
 
 <style>
@@ -61,7 +66,7 @@ h1{
 
 .stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   gap:12px;
   margin:20px 0;
 }
@@ -103,7 +108,8 @@ button{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
   gap:12px;
 }
 
@@ -145,18 +151,19 @@ button{
 
 
 /* =========================
-   ログイン
+   LOGIN
 ========================= */
 
 .login{
   position:fixed;
   inset:0;
-  background:linear-gradient(
-    135deg,
-    #fff3c4,
-    #ffd6e7,
-    #d7e9ff
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #fff3c4,
+      #ffd6e7,
+      #d7e9ff
+    );
   display:flex;
   align-items:center;
   justify-content:center;
@@ -199,9 +206,11 @@ button{
   inset:0;
   background:rgba(15,8,20,.96);
   z-index:7000;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   padding:15px;
 }
 
@@ -225,7 +234,7 @@ button{
 
 
 /* =========================
-   ペリペリ
+   ペリペリ本体
 ========================= */
 
 .peelArea{
@@ -238,21 +247,33 @@ button{
 .ticket{
   position:absolute;
   inset:0;
+
   background:#fff;
   border-radius:25px;
   overflow:hidden;
-  box-shadow:0 20px 70px #0009;
+
+  box-shadow:
+    0 20px 70px #0009;
 }
+
+
+/* =========================
+   中身
+========================= */
 
 .ticketInside{
   position:absolute;
   inset:0;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   padding:30px;
+
   background:#f7f7f7;
+
   border-radius:25px;
 }
 
@@ -273,19 +294,34 @@ button{
 .ticketInside.s{
   border:10px solid #f1b400;
   background:#fff9df;
+
   box-shadow:
     inset 0 0 60px #ffd84d66,
     0 0 50px #f1b400;
 }
 
+
+/* =========================
+   中身の文字
+========================= */
+
 .insideRank{
   font-size:42px;
   font-weight:1000;
+
   color:#222;
+
   background:#fff;
+
   padding:8px 20px;
+
   border-radius:12px;
-  box-shadow:0 4px 12px #0003;
+
+  box-shadow:
+    0 4px 12px #0003;
+
+  text-shadow:none;
+
   position:relative;
   z-index:2;
 }
@@ -293,24 +329,39 @@ button{
 .insideName{
   font-size:24px;
   font-weight:1000;
+
   text-align:center;
+
   margin-top:15px;
+
   color:#222;
+
   background:#fff;
+
   padding:10px 18px;
+
   border-radius:12px;
-  box-shadow:0 4px 12px #0003;
+
+  box-shadow:
+    0 4px 12px #0003;
+
   position:relative;
   z-index:2;
 }
 
 .insidePos{
   margin-top:18px;
+
   color:#222;
+
   background:#fff;
+
   padding:6px 14px;
+
   border-radius:999px;
+
   font-weight:800;
+
   position:relative;
   z-index:2;
 }
@@ -323,8 +374,11 @@ button{
 .peelCover{
   position:absolute;
   inset:0;
+
   border-radius:25px;
+
   overflow:hidden;
+
   z-index:10;
 
   background:
@@ -348,19 +402,26 @@ button{
 
 .peelCover::before{
   content:"";
+
   position:absolute;
+
   inset:15px;
+
   border:3px dashed #ffd166;
+
   border-radius:18px;
 }
 
 .peelLogo{
   position:absolute;
   inset:0;
+
   display:flex;
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
+
   pointer-events:none;
 }
 
@@ -371,26 +432,36 @@ button{
 .peelLogo .text{
   font-size:34px;
   font-weight:1000;
+
   color:#fff;
-  text-shadow:0 3px 10px #0005;
+
+  text-shadow:
+    0 3px 10px #0005;
 }
 
 .peelHint{
   position:absolute;
+
   bottom:35px;
   left:0;
   right:0;
+
   color:#fff;
+
   font-size:18px;
   font-weight:900;
+
   pointer-events:none;
 }
 
 .peelButton{
   margin-top:18px;
+
   background:#ffd166;
   color:#633800;
-  box-shadow:0 8px 25px #ffd16655;
+
+  box-shadow:
+    0 8px 25px #ffd16655;
 }
 
 
@@ -400,29 +471,46 @@ button{
 
 .resultTitle{
   text-align:center;
+
   font-size:30px;
+
   font-weight:1000;
+
   color:#d4145a;
 }
 
 .result{
   display:flex;
+
   justify-content:center;
+
   margin-top:20px;
 }
 
 .tile{
   width:min(360px,100%);
+
   min-height:220px;
+
   background:#fff;
+
   border-radius:20px;
+
   padding:25px;
+
   text-align:center;
+
   display:flex;
+
   flex-direction:column;
+
   justify-content:center;
-  box-shadow:0 8px 25px #0002;
-  animation:resultAppear .5s ease;
+
+  box-shadow:
+    0 8px 25px #0002;
+
+  animation:
+    resultAppear .5s ease;
 }
 
 .tile.S{
@@ -437,79 +525,110 @@ button{
   border:6px solid #7b61ff;
 }
 
-.tile.C{
-  border:5px solid #aaa;
-}
-
 .tile .rank{
   font-size:34px;
+
   font-weight:1000;
+
   color:#222;
+
   background:#fff;
+
   padding:8px 12px;
+
   border-radius:10px;
 }
 
 .tile .name{
   font-size:23px;
+
   font-weight:900;
+
   margin-top:12px;
+
   color:#222;
+
   background:#fff;
+
   padding:9px 12px;
+
   border-radius:10px;
-  box-shadow:0 3px 10px #0002;
+
+  box-shadow:
+    0 3px 10px #0002;
 }
 
 .resultImage{
   width:220px;
+
   max-width:100%;
+
   max-height:300px;
+
   object-fit:contain;
+
   margin:0 auto 15px;
+
   border-radius:12px;
-  box-shadow:0 8px 25px #0003;
+
+  box-shadow:
+    0 8px 25px #0003;
 }
 
 @keyframes resultAppear{
+
   0%{
     transform:scale(.5);
     opacity:0;
   }
+
   70%{
     transform:scale(1.05);
   }
+
   100%{
     transform:scale(1);
     opacity:1;
   }
+
 }
 
 
 /* =========================
-   大当たり
+   大当たり演出
 ========================= */
 
 .bigEffect{
   position:fixed;
   inset:0;
+
   z-index:8500;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   pointer-events:none;
+
   opacity:0;
 }
 
 .bigEffect.show{
-  animation:bigEffect .9s ease;
+  animation:
+    bigEffect .9s ease;
 }
 
 .bigEffectText{
-  font-size:clamp(45px,12vw,110px);
+  font-size:
+    clamp(45px,12vw,110px);
+
   font-weight:1000;
+
   text-align:center;
+
   color:#fff;
+
   text-shadow:
     0 0 10px #fff,
     0 0 30px #d4145a,
@@ -517,22 +636,27 @@ button{
 }
 
 @keyframes bigEffect{
+
   0%{
     opacity:0;
     transform:scale(.3);
   }
+
   25%{
     opacity:1;
     transform:scale(1.15);
   }
+
   70%{
     opacity:1;
     transform:scale(1);
   }
+
   100%{
     opacity:0;
     transform:scale(1.2);
   }
+
 }
 
 
@@ -542,28 +666,36 @@ button{
 
 .confetti{
   position:fixed;
+
   top:-20px;
+
   width:10px;
   height:18px;
+
   z-index:9000;
+
   pointer-events:none;
-  animation:fall linear forwards;
+
+  animation:
+    fall linear forwards;
 }
 
 @keyframes fall{
+
   to{
     transform:
       translateY(110vh)
       rotate(720deg);
   }
+
 }
 
 
-@media(max-width:600px){
+/* =========================
+   スマホ
+========================= */
 
-  .stats{
-    grid-template-columns:1fr;
-  }
+@media(max-width:600px){
 
   .peelArea{
     height:450px;
@@ -590,7 +722,10 @@ button{
      ログイン
 ========================= -->
 
-<div id="login" class="login">
+<div
+  id="login"
+  class="login"
+>
 
   <div class="loginbox">
 
@@ -603,7 +738,9 @@ button{
       オリパ★
     </h1>
 
-    <p>友達限定ページ</p>
+    <p>
+      友達限定ページ
+    </p>
 
     <input
       id="pw"
@@ -619,7 +756,10 @@ button{
       ログイン
     </button>
 
-    <div id="err" class="err"></div>
+    <div
+      id="err"
+      class="err"
+    ></div>
 
   </div>
 
@@ -630,18 +770,21 @@ button{
      大当たり演出
 ========================= -->
 
-<div id="bigEffect" class="bigEffect">
+<div
+  id="bigEffect"
+  class="bigEffect"
+>
 
   <div
     id="bigEffectText"
-    class="bigEffectText">
-  </div>
+    class="bigEffectText"
+  ></div>
 
 </div>
 
 
 <!-- =========================
-     ガチャ
+     ガチャ画面
 ========================= -->
 
 <div
@@ -657,13 +800,18 @@ button{
 
     <div
       id="gachaCount"
-      class="gachaCount">
+      class="gachaCount"
+    >
       1口目
     </div>
+
 
     <div class="peelArea">
 
       <div class="ticket">
+
+
+        <!-- 中身 -->
 
         <div
           id="ticketInside"
@@ -672,24 +820,29 @@ button{
 
           <div
             id="insideRank"
-            class="insideRank">
+            class="insideRank"
+          >
             C賞
           </div>
 
           <div
             id="insideName"
-            class="insideName">
+            class="insideName"
+          >
             ハズレ
           </div>
 
           <div
             id="insidePos"
-            class="insidePos">
+            class="insidePos"
+          >
             1口目
           </div>
 
         </div>
 
+
+        <!-- ペリペリ -->
 
         <div
           id="peelCover"
@@ -722,6 +875,7 @@ button{
     <button
       id="peelButton"
       class="peelButton"
+      type="button"
       onclick="peel()"
     >
       👉 ペリペリする！
@@ -749,6 +903,7 @@ button{
       🎂 バースデイスペシャル 🎂
     </div>
 
+
     <div class="stats">
 
       <div class="stat">
@@ -757,25 +912,14 @@ button{
 
         <div
           id="remaining"
-          class="num">
+          class="num"
+        >
           15
         </div>
 
-        <small>/ 15</small>
-
-      </div>
-
-      <div class="stat">
-
-        本日の残り回数
-
-        <div
-          id="dailyLeft"
-          class="num">
-          5
-        </div>
-
-        <small>/ 5回</small>
+        <small>
+          / 15
+        </small>
 
       </div>
 
@@ -793,7 +937,7 @@ button{
 
 
     <div class="notice">
-      ※1日5回まで。毎日0:00に回数がリセットされます。
+      ※回数制限なし。15口なくなるまで何回でも引けます。
     </div>
 
   </div>
@@ -810,20 +954,21 @@ button{
 
     <div
       id="resultTitle"
-      class="resultTitle">
+      class="resultTitle"
+    >
       ガチャ結果
     </div>
 
     <div
       id="result"
-      class="result">
-    </div>
+      class="result"
+    ></div>
 
   </div>
 
 
   <!-- =========================
-       ラインナップ
+       公開ラインナップ
   ========================= -->
 
   <div class="card">
@@ -832,16 +977,19 @@ button{
       🎁 公開ラインナップ
     </h2>
 
+
     <div class="grid">
 
 
       <div class="prize S">
 
-        <b>S賞 ×1</b>
+        <b>
+          S賞 ×1
+        </b>
 
         <br>
 
-        何かの未開封BOX
+        何かの未開封BOX<br>
         （シュリンク付き）
 
         <div class="left">
@@ -855,7 +1003,9 @@ button{
 
       <div class="prize A">
 
-        <b>A賞 ×2</b>
+        <b>
+          A賞 ×2
+        </b>
 
         <br>
 
@@ -872,7 +1022,9 @@ button{
 
       <div class="prize B">
 
-        <b>B賞 ×4</b>
+        <b>
+          B賞 ×4
+        </b>
 
         <br>
 
@@ -889,7 +1041,9 @@ button{
 
       <div class="prize">
 
-        <b>C賞 ×8</b>
+        <b>
+          C賞 ×8
+        </b>
 
         <br>
 
@@ -912,7 +1066,6 @@ button{
 
 <script>
 
-
 /* =========================
    基本設定
 ========================= */
@@ -920,8 +1073,6 @@ button{
 const PASSWORD="takuya";
 
 const TOTAL=15;
-
-const DAILY_LIMIT=5;
 
 
 /* =========================
@@ -975,172 +1126,24 @@ const fixed={
 
 
 /* =========================
-   日付
-========================= */
-
-function todayKey(){
-
-  const d=new Date();
-
-  return d.getFullYear()+"-"+
-
-    String(d.getMonth()+1).padStart(2,"0")+"-"+
-
-    String(d.getDate()).padStart(2,"0");
-
-}
-
-
-/* =========================
-   データ
-========================= */
-
-function load(){
-
-  let d=null;
-
-  try{
-
-    d=JSON.parse(
-      localStorage.getItem("oripaData")||"null"
-    );
-
-  }catch(e){
-
-    d=null;
-
-  }
-
-
-  if(!d){
-
-    d={
-      date:todayKey(),
-      next:1,
-      daily:0
-    };
-
-  }
-
-
-  /* 日付が変わったら1日5回をリセット */
-
-  if(d.date!==todayKey()){
-
-    d.date=todayKey();
-
-    d.daily=0;
-
-  }
-
-
-  return d;
-
-}
-
-
-function save(d){
-
-  localStorage.setItem(
-    "oripaData",
-    JSON.stringify(d)
-  );
-
-}
-
-
-/* =========================
-   ログイン
-========================= */
-
-function login(){
-
-  const input=
-    document
-      .getElementById("pw")
-      .value
-      .trim();
-
-
-  if(input===PASSWORD){
-
-    sessionStorage.setItem(
-      "oripaLogin",
-      "1"
-    );
-
-    document
-      .getElementById("login")
-      .classList
-      .add("hidden");
-
-    document
-      .getElementById("err")
-      .textContent="";
-
-  }else{
-
-    document
-      .getElementById("err")
-      .textContent=
-        "パスワードが違います";
-
-  }
-
-}
-
-
-document
-  .getElementById("pw")
-  .addEventListener(
-    "keydown",
-    function(e){
-
-      if(e.key==="Enter"){
-
-        login();
-
-      }
-
-    }
-  );
-
-
-if(
-  sessionStorage.getItem("oripaLogin")==="1"
-){
-
-  document
-    .getElementById("login")
-    .classList
-    .add("hidden");
-
-}
-
-
-/* =========================
    音
 ========================= */
 
 let audioCtx=null;
 
-
 function startAudio(){
 
   if(!audioCtx){
 
-    audioCtx=
-      new(
-        window.AudioContext||
-        window.webkitAudioContext
-      )();
+    audioCtx=new(
+      window.AudioContext||
+      window.webkitAudioContext
+    )();
 
   }
 
   if(audioCtx.state==="suspended"){
-
     audioCtx.resume();
-
   }
 
 }
@@ -1177,7 +1180,9 @@ function tone(
 
   osc.connect(gain);
 
-  gain.connect(audioCtx.destination);
+  gain.connect(
+    audioCtx.destination
+  );
 
   osc.start();
 
@@ -1189,7 +1194,7 @@ function tone(
 
 
 /* =========================
-   長いペリペリ音
+   長めのペリペリ音
 ========================= */
 
 function peelSound(){
@@ -1202,25 +1207,23 @@ function peelSound(){
     280,300,275,315,335,
     300,350,365,340,380,
     395,370,410,430,400,
-    440,460,445,475,490
+    440,460,445,475,490,
+    510,480,530,550,520
   ];
 
   sounds.forEach(
     (n,i)=>{
 
-      setTimeout(
-        ()=>{
+      setTimeout(()=>{
 
-          tone(
-            n,
-            .11,
-            "triangle",
-            .055
-          );
+        tone(
+          n,
+          .13,
+          "triangle",
+          .055
+        );
 
-        },
-        i*100
-      );
+      },i*100);
 
     }
   );
@@ -1229,7 +1232,7 @@ function peelSound(){
 
 
 /* =========================
-   B賞
+   B賞音
 ========================= */
 
 function bSound(){
@@ -1241,25 +1244,22 @@ function bSound(){
     .12
   );
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      tone(
-        900,
-        .25,
-        "triangle",
-        .15
-      );
+    tone(
+      900,
+      .25,
+      "triangle",
+      .15
+    );
 
-    },
-    120
-  );
+  },120);
 
 }
 
 
 /* =========================
-   A賞
+   A賞音
 ========================= */
 
 function aSound(){
@@ -1267,23 +1267,21 @@ function aSound(){
   [
     700,
     1000,
-    1400
+    1400,
+    1700
   ].forEach(
     (n,i)=>{
 
-      setTimeout(
-        ()=>{
+      setTimeout(()=>{
 
-          tone(
-            n,
-            .25,
-            "triangle",
-            .16
-          );
+        tone(
+          n,
+          .25,
+          "triangle",
+          .16
+        );
 
-        },
-        i*130
-      );
+      },i*130);
 
     }
   );
@@ -1292,7 +1290,7 @@ function aSound(){
 
 
 /* =========================
-   S賞
+   S賞音
 ========================= */
 
 function sSound(){
@@ -1307,19 +1305,16 @@ function sSound(){
   ].forEach(
     (n,i)=>{
 
-      setTimeout(
-        ()=>{
+      setTimeout(()=>{
 
-          tone(
-            n,
-            .32,
-            "triangle",
-            .20
-          );
+        tone(
+          n,
+          .32,
+          "triangle",
+          .20
+        );
 
-        },
-        i*130
-      );
+      },i*130);
 
     }
   );
@@ -1328,7 +1323,123 @@ function sSound(){
 
 
 /* =========================
-   残り口数
+   データ
+========================= */
+
+function load(){
+
+  let d=null;
+
+  try{
+
+    d=JSON.parse(
+      localStorage.getItem(
+        "oripaData"
+      )||"null"
+    );
+
+  }catch(e){
+
+    d=null;
+
+  }
+
+  if(
+    !d||
+    d.next===undefined
+  ){
+
+    d={
+      next:1
+    };
+
+  }
+
+  return d;
+
+}
+
+
+function save(d){
+
+  localStorage.setItem(
+    "oripaData",
+    JSON.stringify(d)
+  );
+
+}
+
+
+/* =========================
+   ログイン
+========================= */
+
+function login(){
+
+  const input=
+    document
+      .getElementById("pw")
+      .value
+      .trim();
+
+  if(input===PASSWORD){
+
+    sessionStorage.setItem(
+      "oripaLogin",
+      "1"
+    );
+
+    document
+      .getElementById("login")
+      .classList
+      .add("hidden");
+
+    document
+      .getElementById("err")
+      .textContent="";
+
+  }else{
+
+    document
+      .getElementById("err")
+      .textContent=
+        "パスワードが違います";
+
+  }
+
+}
+
+
+document
+  .getElementById("pw")
+  .addEventListener(
+    "keydown",
+    e=>{
+
+      if(e.key==="Enter"){
+        login();
+      }
+
+    }
+  );
+
+
+if(
+  sessionStorage.getItem(
+    "oripaLogin"
+  )==="1"
+){
+
+  document
+    .getElementById("login")
+    .classList
+    .add("hidden");
+
+}
+
+
+/* =========================
+   残り賞数
 ========================= */
 
 function calculateRemaining(){
@@ -1339,9 +1450,6 @@ function calculateRemaining(){
   let a=2;
   let b=4;
 
-  let c=8;
-
-
   for(
     let i=1;
     i<d.next;
@@ -1349,34 +1457,35 @@ function calculateRemaining(){
   ){
 
     if(!fixed[i]){
-
-      c--;
-
       continue;
-
     }
-
 
     if(fixed[i].rank==="S賞"){
-
       s--;
-
     }
 
-    else if(fixed[i].rank==="A賞"){
-
+    if(fixed[i].rank==="A賞"){
       a--;
-
     }
 
-    else if(fixed[i].rank==="B賞"){
-
+    if(fixed[i].rank==="B賞"){
       b--;
-
     }
 
   }
 
+  const drawn=d.next-1;
+
+  const special=
+    (1-s)+
+    (2-a)+
+    (4-b);
+
+  const c=
+    Math.max(
+      0,
+      8-(drawn-special)
+    );
 
   return{
 
@@ -1386,7 +1495,7 @@ function calculateRemaining(){
 
     b:Math.max(0,b),
 
-    c:Math.max(0,c)
+    c:c
 
   };
 
@@ -1403,35 +1512,21 @@ function update(){
 
   save(d);
 
-
   document
     .getElementById("remaining")
     .textContent=
       Math.max(
         0,
-        TOTAL-d.next+1
+        TOTAL+1-d.next
       );
-
-
-  document
-    .getElementById("dailyLeft")
-    .textContent=
-      Math.max(
-        0,
-        DAILY_LIMIT-d.daily
-      );
-
 
   document
     .getElementById("draw")
     .disabled=
-      d.next>TOTAL ||
-      d.daily>=DAILY_LIMIT;
-
+      d.next>TOTAL;
 
   const r=
     calculateRemaining();
-
 
   document
     .getElementById("sLeft")
@@ -1465,24 +1560,13 @@ function drawOne(){
 
   const d=load();
 
-
-  if(
-    d.next>TOTAL ||
-    d.daily>=DAILY_LIMIT
-  ){
-
-    update();
-
+  if(d.next>TOTAL){
     return;
-
   }
-
 
   startAudio();
 
-
   const position=d.next;
-
 
   currentCard={
 
@@ -1492,42 +1576,32 @@ function drawOne(){
 
       rank:"C賞",
 
-      name:"ハズレ",
-
-      image:null
+      name:"ハズレ"
 
     })
 
   };
 
-
   d.next++;
-
-  d.daily++;
-
 
   save(d);
 
   update();
-
 
   document
     .getElementById("resultCard")
     .classList
     .add("hidden");
 
-
   document
     .getElementById("gachaOverlay")
     .classList
     .remove("hidden");
 
-
   document
     .getElementById("gachaCount")
     .textContent=
       position+"口目";
-
 
   showCard();
 
@@ -1541,56 +1615,46 @@ function drawOne(){
 function showCard(){
 
   const inside=
-    document.getElementById("ticketInside");
-
+    document.getElementById(
+      "ticketInside"
+    );
 
   let type="c";
 
-
   if(currentCard.rank==="S賞"){
-
     type="s";
-
   }
 
-  else if(currentCard.rank==="A賞"){
-
+  if(currentCard.rank==="A賞"){
     type="a";
-
   }
 
-  else if(currentCard.rank==="B賞"){
-
+  if(currentCard.rank==="B賞"){
     type="b";
-
   }
-
 
   inside.className=
     "ticketInside "+type;
-
 
   document
     .getElementById("insideRank")
     .textContent=
       currentCard.rank;
 
-
   document
     .getElementById("insideName")
     .textContent=
       currentCard.name;
-
 
   document
     .getElementById("insidePos")
     .textContent=
       currentCard.position+"口目";
 
-
   const cover=
-    document.getElementById("peelCover");
-
+    document.getElementById(
+      "peelCover"
+    );
 
   cover.style.transition="none";
 
@@ -1599,15 +1663,11 @@ function showCard(){
 
   cover.style.opacity="1";
 
-
   void cover.offsetWidth;
-
 
   cover.style.transition="";
 
-
   peeling=false;
-
 
   document
     .getElementById("peelButton")
@@ -1626,66 +1686,55 @@ function peel(){
     peeling||
     !currentCard
   ){
-
     return;
-
   }
-
 
   peeling=true;
 
-
   const cover=
-    document.getElementById("peelCover");
-
+    document.getElementById(
+      "peelCover"
+    );
 
   document
     .getElementById("peelButton")
     .disabled=true;
 
-
   peelSound();
 
+  setTimeout(()=>{
 
-  setTimeout(
-    ()=>{
+    cover.style.transition=
+      "transform 1.7s cubic-bezier(.2,.8,.2,1),opacity 1.7s";
 
-      cover.style.transition=
-        "transform 1.7s cubic-bezier(.2,.8,.2,1),opacity 1.7s";
+    cover.style.transform=
+      "translateX(110%) rotate(0deg)";
 
-      cover.style.transform=
-        "translateX(110%) rotate(0deg)";
+    cover.style.opacity="0";
 
-      cover.style.opacity="0";
+  },50);
 
-    },
-    50
-  );
+  setTimeout(()=>{
 
+    revealPrize(currentCard);
 
-  setTimeout(
-    ()=>{
-
-      revealPrize(currentCard);
-
-    },
-    1800
-  );
+  },1800);
 
 }
 
 
 /* =========================
-   スワイプ
+   スライド
 ========================= */
 
 let startX=0;
 
 let dragging=false;
 
-
 const peelCover=
-  document.getElementById("peelCover");
+  document.getElementById(
+    "peelCover"
+  );
 
 
 peelCover.addEventListener(
@@ -1693,9 +1742,7 @@ peelCover.addEventListener(
   e=>{
 
     if(peeling){
-
       return;
-
     }
 
     dragging=true;
@@ -1718,18 +1765,14 @@ peelCover.addEventListener(
       !dragging||
       peeling
     ){
-
       return;
-
     }
-
 
     const dx=
       Math.max(
         0,
         e.clientX-startX
       );
-
 
     peelCover.style.transform=
       "translateX("+
@@ -1745,18 +1788,13 @@ peelCover.addEventListener(
   e=>{
 
     if(!dragging){
-
       return;
-
     }
-
 
     dragging=false;
 
-
     const dx=
       e.clientX-startX;
-
 
     if(dx>70){
 
@@ -1783,13 +1821,15 @@ peelCover.addEventListener(
 function bigEffect(text){
 
   const box=
-    document.getElementById("bigEffect");
-
+    document.getElementById(
+      "bigEffect"
+    );
 
   document
-    .getElementById("bigEffectText")
+    .getElementById(
+      "bigEffectText"
+    )
     .textContent=text;
-
 
   box.classList.remove("show");
 
@@ -1800,10 +1840,6 @@ function bigEffect(text){
 }
 
 
-/* =========================
-   紙吹雪
-========================= */
-
 function makeConfetti(){
 
   for(
@@ -1813,15 +1849,14 @@ function makeConfetti(){
   ){
 
     const c=
-      document.createElement("div");
-
+      document.createElement(
+        "div"
+      );
 
     c.className="confetti";
 
-
     c.style.left=
       Math.random()*100+"%";
-
 
     c.style.background=
       [
@@ -1836,17 +1871,14 @@ function makeConfetti(){
         )
       ];
 
-
     c.style.animationDuration=
       2+
       Math.random()*2.5+
       "s";
 
-
     document
       .body
       .appendChild(c);
-
 
     setTimeout(
       ()=>{
@@ -1861,7 +1893,7 @@ function makeConfetti(){
 
 
 /* =========================
-   リザルト
+   結果表示
 ========================= */
 
 function revealPrize(card){
@@ -1870,12 +1902,13 @@ function revealPrize(card){
 
     bSound();
 
-    setTimeout(
-      ()=>{
-        bigEffect("🔥 B賞！！ 🔥");
-      },
-      100
-    );
+    setTimeout(()=>{
+
+      bigEffect(
+        "🔥 B賞！！ 🔥"
+      );
+
+    },100);
 
   }
 
@@ -1884,12 +1917,13 @@ function revealPrize(card){
 
     aSound();
 
-    setTimeout(
-      ()=>{
-        bigEffect("✨ A賞！！ ✨");
-      },
-      100
-    );
+    setTimeout(()=>{
+
+      bigEffect(
+        "✨ A賞！！ ✨"
+      );
+
+    },100);
 
   }
 
@@ -1898,170 +1932,151 @@ function revealPrize(card){
 
     sSound();
 
-    setTimeout(
-      ()=>{
+    setTimeout(()=>{
 
-        bigEffect("🎉 S賞！！ 🎉");
+      bigEffect(
+        "🎉 S賞！！ 🎉"
+      );
 
-        makeConfetti();
+      makeConfetti();
 
-      },
-      100
-    );
+    },100);
 
   }
 
 
   let wait=900;
 
-
   if(card.rank==="B賞"){
-
     wait=1300;
-
   }
 
   if(card.rank==="A賞"){
-
     wait=1600;
-
   }
 
   if(card.rank==="S賞"){
-
     wait=2100;
-
   }
 
+  setTimeout(()=>{
 
-  setTimeout(
-    ()=>{
+    document
+      .getElementById(
+        "gachaOverlay"
+      )
+      .classList
+      .add("hidden");
 
-      document
-        .getElementById("gachaOverlay")
-        .classList
-        .add("hidden");
+    showResult(card);
 
-
-      showResult(card);
-
-    },
-    wait
-  );
+  },wait);
 
 }
 
 
 /* =========================
-   結果表示
+   リザルト
 ========================= */
 
 function showResult(card){
 
   const result=
-    document.getElementById("result");
-
+    document.getElementById(
+      "result"
+    );
 
   result.innerHTML="";
 
-
   const el=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
-
-  let cls="C";
-
+  let cls="";
 
   if(card.rank==="S賞"){
-
     cls="S";
-
   }
 
-  else if(card.rank==="A賞"){
-
+  if(card.rank==="A賞"){
     cls="A";
-
   }
 
-  else if(card.rank==="B賞"){
-
+  if(card.rank==="B賞"){
     cls="B";
-
   }
-
 
   el.className=
     "tile "+cls;
 
-
   let imageHTML="";
-
 
   if(card.image){
 
     imageHTML=
-      '<img src="'+
+      "<img src=\""+
       card.image+
-      '" class="resultImage" '+
-      'alt="'+
+      "\" class=\"resultImage\" "+
+      "alt=\""+
       card.name+
-      '">';
+      "\" "+
+      "onerror=\"this.style.display='none'\">";
 
   }
-
 
   el.innerHTML=
 
     imageHTML+
 
-    '<div class="rank">'+
+    "<div class=\"rank\">"+
     card.rank+
-    '</div>'+
+    "</div>"+
 
-    '<div class="name">'+
+    "<div class=\"name\">"+
     card.name+
-    '</div>'+
+    "</div>"+
 
-    '<small>'+
+    "<small>"+
     card.position+
-    '口目'+
-    '</small>';
-
+    "口目"+
+    "</small>";
 
   result.appendChild(el);
 
-
   document
-    .getElementById("resultTitle")
+    .getElementById(
+      "resultTitle"
+    )
     .textContent=
 
       card.rank==="S賞"
 
-      ? "🎉🎉 S賞 大当たり！！ 🎉🎉"
+        ?"🎉🎉 S賞 大当たり！！ 🎉🎉"
 
-      : card.rank==="A賞"
+        :card.rank==="A賞"
 
-      ? "✨ A賞 当選！！ ✨"
+          ?"✨ A賞 当選！！ ✨"
 
-      : card.rank==="B賞"
+          :card.rank==="B賞"
 
-      ? "🔥 B賞 当選！！ 🔥"
+            ?"🔥 B賞 当選！！ 🔥"
 
-      : "ガチャ結果";
-
+            :"ガチャ結果";
 
   document
-    .getElementById("resultCard")
+    .getElementById(
+      "resultCard"
+    )
     .classList
     .remove("hidden");
 
-
   update();
 
-
   document
-    .getElementById("resultCard")
+    .getElementById(
+      "resultCard"
+    )
     .scrollIntoView({
       behavior:"smooth"
     });
